@@ -1,4 +1,1 @@
-# 文档
-
-
-[A](A.md)
+# EzioShiki的文档
