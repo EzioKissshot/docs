@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/vue.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '',
+      loadNavbar: true,
+      maxLevel: 3,
+      repo:'',
+      coverpage: 'cover.md',
+      // search: 'auto'
+
+      // search: {
+      //   maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      //   path:[],
+      //   placeholder: '搜索'
+      // }, // 默认值
+      
+      //配置侧边栏
+      loadSidebar: true,
+      subMaxLevel: 4,
+      auto2top: true,
+
+      pagination: {
+        previousText: '上一章节',
+        nextText: '下一章节',
+        crossChapter: true
+      },
+
+      search: {
+        // 过期时间，本地调试使用隐私模式，否则一直走缓存
+        maxAge: 86400000,
+        // 需要搜索的文档需要在此添加地址，才会纳入全文索引
+        paths: 'auto, // or 'auto'
+        placeholder: 'Type to search',
+        placeholder: '搜索',
+        noData: '找不到结果',
+        // 搜索标题的最大程级, 1 - 6
+        depth: 6
+      }
+    }
+    console.log('serviceWorker', typeof navigator.serviceWorker)
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script>
+  <script src="./assets/js/docsify.min.js"></script>
+  <script src="./assets/js/docsify-search.js"></script>
+  <script src="./assets/js/docsify-copy-code.js"></script>
+  <script src="./assets/js/docsify-pagination.min.js"></script>
+  <script src="./assets/js/prism-bash.js"></script>
+</body>
+</html>
