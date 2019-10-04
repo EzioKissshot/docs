@@ -15,6 +15,7 @@
 将ytdlrc在vps上设置好（具体也请参照文档
 - git clone
 - 安装coreutils、ffmpeg、rclone、youtube-dl等依赖
+- 初始化设置rclone，绑定一个云服务
 - 修改ytdlrc脚本中的rclone_destination等
 - 先在远程机器上试下载
 
