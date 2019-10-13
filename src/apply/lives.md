@@ -26,7 +26,7 @@
         - https://live.bilibili.com/281 # 枯水
         - https://live.bilibili.com/2004599 # debug
     ```
-    
+
 3. 用以下命令开启自动录制直播
     ```
     docker run -v ~/app/bililive/bililive/records:/srv/bililive -v ~/app/bililive/bililive/config:/etc/bililive-go -d -p 9090:9090 chigusa/bililive-go
@@ -62,7 +62,7 @@
                 os.system('rclone move ' + up_path.encode('UTF-8') + ' ezio-dropbox:/lives/' + live['host_name'].encode('UTF-8'))
     ```
 
-6. 写一个定时任务
+6. 写一个定时任务，每天早上6点执行下上传脚本
 
     sync-live.cron
     ```
