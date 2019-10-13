@@ -9,6 +9,7 @@
 1. 安装docker
 
 2. 写一个bilibili-go的config.yml，放在一个合适的地方，之后要挂到docker的实例上去
+    config.yml
     ```
     # config.yml
     rpc: 
@@ -27,26 +28,28 @@
         - https://live.bilibili.com/2004599 # debug
     ```
 
-3. 用以下命令开启自动录制直播
+3. 使用docker自动录制直播
     ```
     docker run -v ~/app/bililive/bililive/records:/srv/bililive -v ~/app/bililive/bililive/config:/etc/bililive-go -d -p 9090:9090 chigusa/bililive-go
     ```
     用两个volumn，将本机和docker实例的存储直播路径和config.yml路径分别关联起来，API暴露在9090，[api-doc](https://github.com/hr3lxphr6j/bililive-go/blob/master/docs/API.md)。
 
-    docker的volumn命令是local:remote，并且必须是绝对路径
+    docker的volumn命令是<local>:<remote>，并且必须是绝对路径
 
 4. 配置rclone
 
-    安装好rclone后，配置一个remote，这里是`ezio-dropbox`
+    先安装rclone，配置一个remote，这里的remote名是`ezio-dropbox`
 
 5. 写一个python脚本，访问API获取直播间，先判断下是否在直播，如果不在直播则可以将之前的直播视频上传到dropbox。（为了保证逻辑的简单，这里rclone用的是move，如果不判断的话会导致视频的一部分丢失）
 
-    ```
+    python好久没写了，写的很渣
+
+    move-live-everyday.py
+    ```python
     #-*- coding: UTF-8 -*-
     import requests
     import os.path
     import os
-    from string import Template
     records_root_path = "/root/app/bililive/bililive/records"
     r = requests.get('http://0.0.0.0:9090/lives', {'token':'xxxx'})
     # print(r.json())
@@ -62,14 +65,14 @@
                 os.system('rclone move ' + up_path.encode('UTF-8') + ' ezio-dropbox:/lives/' + live['host_name'].encode('UTF-8'))
     ```
 
-6. 写一个定时任务，每天早上6点执行下上传脚本
+6. 写一个定时任务，每天早上6点执行下上面的move-live-everyday.py上传脚本
 
     sync-live.cron
     ```
     0 6 * * * root python /root/app/bililive/bililive/move-live-everyday.py
     ```
 
-7. 将定时任务注册到cron
+7. 将上面的定时任务注册到cron
 
     ```
     crontab sync-live.cron
