@@ -34,7 +34,7 @@
     ```
     用两个volumn，将本机和docker实例的存储直播路径和config.yml路径分别关联起来，API暴露在9090，[api-doc](https://github.com/hr3lxphr6j/bililive-go/blob/master/docs/API.md)。
 
-    docker的volumn命令是<local>:<remote>，并且必须是绝对路径
+    docker的volumn命令是`<local>:<remote>`，并且必须是绝对路径
 
 4. 配置rclone
 
