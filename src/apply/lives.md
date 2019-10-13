@@ -42,7 +42,7 @@
 
 5. 写一个python脚本，访问API获取直播间，先判断下是否在直播，如果不在直播则可以将之前的直播视频上传到dropbox。（为了保证逻辑的简单，这里rclone用的是move，如果不判断的话会导致视频的一部分丢失）
 
-    python好久没写了，写的很渣
+    python好多年没写了，写的很渣
 
     move-live-everyday.py
     ```python
