@@ -38,7 +38,7 @@
 
 4. 配置rclone
 
-    先安装rclone，配置一个remote，这里的remote名是`ezio-dropbox`
+    先[安装rclone](https://rclone.org/install/)，`rclone config`配置一个remote，我的remote名是`ezio-dropbox`
 
 5. 写一个python脚本，访问API获取直播间，先判断下是否在直播，如果不在直播则可以将之前的直播视频上传到dropbox。（为了保证逻辑的简单，这里rclone用的是move，如果不判断的话会导致视频的一部分丢失）
 
