@@ -44,6 +44,8 @@
 
     python好多年没写了，写的很渣
 
+    需要先`pip install requests`
+
     move-live-everyday.py
     ```python
     #-*- coding: UTF-8 -*-
