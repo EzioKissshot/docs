@@ -10,7 +10,7 @@
 
 2. 写一个bilibili-go的config.yml，放在一个合适的地方，之后要挂到docker的实例上去
     config.yml
-    ```
+    ```yaml
     # config.yml
     rpc: 
     enable: true           # 是否开启API
