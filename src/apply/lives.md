@@ -58,7 +58,7 @@
         for live in rj['data']:
             if live['status'] == False:
                 up_path = os.path.join(records_root_path, live['platform_cn_name'] ,live['host_name'])
-                print('try to move ' + live['host_name'])
+                # print('try to move ' + live['host_name'])
                 # print repr(up_path)
                 # print repr(live['host_name'])
                 # shell执行rclone将直播移到dropbox相应文件夹/lives/up主名
@@ -69,7 +69,7 @@
 
     sync-live.cron
     ```
-    0 6 * * * root python /root/app/bililive/bililive/move-live-everyday.py
+    0 6 * * * python /root/app/bililive/bililive/move-live-everyday.py >> $HOME/crontab_logs/move-live-everyday.log 2>&1
     ```
 
 7. 将上面的定时任务注册到cron
