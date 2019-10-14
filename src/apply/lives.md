@@ -34,15 +34,17 @@
     ```
     用两个volumn，将本机和docker实例的存储直播路径和config.yml路径分别关联起来，API暴露在9090，[api-doc](https://github.com/hr3lxphr6j/bililive-go/blob/master/docs/API.md)。
 
-    docker的volumn命令是<local>:<remote>，并且必须是绝对路径
+    docker的volumn命令是`<local>:<remote>`，并且必须是绝对路径
 
 4. 配置rclone
 
-    先安装rclone，配置一个remote，这里的remote名是`ezio-dropbox`
+    先[安装rclone](https://rclone.org/install/)，`rclone config`配置一个remote，我的remote名是`ezio-dropbox`
 
 5. 写一个python脚本，访问API获取直播间，先判断下是否在直播，如果不在直播则可以将之前的直播视频上传到dropbox。（为了保证逻辑的简单，这里rclone用的是move，如果不判断的话会导致视频的一部分丢失）
 
-    python好久没写了，写的很渣
+    python好多年没写了，写的很渣
+
+    需要先`pip install requests`
 
     move-live-everyday.py
     ```python
