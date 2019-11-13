@@ -67,7 +67,7 @@
                 os.system('rclone move ' + up_path.encode('UTF-8') + ' ezio-dropbox:/lives/' + live['host_name'].encode('UTF-8'))
     ```
 
-6. 写一个定时任务，每天早上6点执行下上面的move-live-everyday.py上传脚本
+6. 写一个定时任务，每天早上6点执行下上面的move-live-everyday.py上传脚本，[cron文档](https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/crontab.html)
 
     sync-live.cron
     ```
