@@ -5,6 +5,7 @@
 [官方快捷键](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
 
 - 万能命令：command + shift + P
+- 切换窗口：ctrl + W
 
 ### 光标跳转
 
